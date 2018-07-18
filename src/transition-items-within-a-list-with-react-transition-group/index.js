@@ -1,37 +1,87 @@
 import React, { Component } from 'react';
-import { CSSTransition } from 'react-transition-group';
+import {
+  CSSTransition,
+  TransitionGroup,
+} from 'react-transition-group';
 import './index.css';
+import uuidv1 from 'uuid/v1';
 
 class App extends Component {
   state = {
-    showing: false,
+    numbers: [
+      {
+        id: uuidv1(),
+        number: 5,
+      },
+      {
+        id: uuidv1(),
+        number: 53,
+      },
+      {
+        id: uuidv1(),
+        number: 51,
+      },
+      {
+        id: uuidv1(),
+        number: 535,
+      },
+      {
+        id: uuidv1(),
+        number: 52332,
+      },
+    ],
   };
 
-  toggle = () => {
+  addCell = () => {
     this.setState(state => ({
-      showing: !state.showing,
+      numbers: [
+        ...state.numbers,
+        {
+          id: new Date().getUTCMilliseconds(),
+          number: Math.floor(
+            Math.random() * Math.floor(20)
+          ),
+        },
+      ],
+    }));
+  };
+
+  removeNumber = id => {
+    this.setState(state => ({
+      numbers: state.numbers.filter(
+        item => item.id !== id
+      ),
     }));
   };
 
   render() {
     return (
-      <div>
-        <button onClick={this.toggle}>
-          Toggle Image
+      <div className="app">
+        <button onClick={this.addCell}>
+          Add Row
         </button>
-        <CSSTransition
-          in={this.state.showing}
-          timeout={500}
-          classNames="fade"
-          unmountOnExit
-        >
-          <div>
-            <img
-              src="https://placeimg.com/200/200/any"
-              alt=""
-            />
-          </div>
-        </CSSTransition>
+        <TransitionGroup>
+          {this.state.numbers.map(
+            ({ id, number }) => (
+              <CSSTransition
+                timeout={500}
+                classNames="fade"
+                key={id}
+              >
+                <div className="card">
+                  {number}
+                  <button
+                    onClick={() =>
+                      this.removeNumber(id)
+                    }
+                  >
+                    Remove
+                  </button>
+                </div>
+              </CSSTransition>
+            )
+          )}
+        </TransitionGroup>
       </div>
     );
   }
