@@ -19,3 +19,38 @@
   opacity: 0;
   transition: all 500ms;
 }
+
+.container {
+  display: flex;
+}
+
+.ingredients {
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.ingredient {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.star {
+  margin-left: 5px;
+  color: gold;
+}
+
+.favorites {
+  width: 50%;
+  background-color: papayawhip;
+}
+
+.favorite {
+  padding: 10px;
+}
+
+.list-item,
+.favorite {
+ padding: 10px;
+}

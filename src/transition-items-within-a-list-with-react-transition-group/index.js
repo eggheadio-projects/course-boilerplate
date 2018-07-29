@@ -3,84 +3,98 @@ import {
   CSSTransition,
   TransitionGroup,
 } from 'react-transition-group';
-import './index.css';
+import cx from 'classnames';
 import uuidv1 from 'uuid/v1';
+import './index.css';
 
 class App extends Component {
+  items = [
+    {
+      name: 'Potato',
+      id: uuidv1(),
+    },
+    {
+      name: 'Carrot',
+      id: uuidv1(),
+    },
+    {
+      name: 'Pepper',
+      id: uuidv1(),
+    },
+    {
+      name: 'Eggplant',
+      id: uuidv1(),
+    },
+    {
+      name: 'Onion',
+      id: uuidv1(),
+    },
+    {
+      name: 'Garlic',
+      id: uuidv1(),
+    },
+  ];
+
   state = {
-    numbers: [
-      {
-        id: uuidv1(),
-        number: 5,
-      },
-      {
-        id: uuidv1(),
-        number: 53,
-      },
-      {
-        id: uuidv1(),
-        number: 51,
-      },
-      {
-        id: uuidv1(),
-        number: 535,
-      },
-      {
-        id: uuidv1(),
-        number: 52332,
-      },
-    ],
+    favorites: [],
   };
 
-  addCell = () => {
+  toggleInFavorites = id => {
+    let favorites;
+    if (
+      this.state.favorites.find(
+        favorite => favorite.id === id
+      )
+    ) {
+      // Item is already in favorites, remove it.
+      favorites = this.state.favorites.filter(
+        favorite => favorite.id !== id
+      );
+    } else {
+      // Item is not in favorites, add it.
+      favorites = [
+        ...this.state.favorites,
+        this.items.find(item => id === item.id),
+      ];
+    }
     this.setState(state => ({
-      numbers: [
-        ...state.numbers,
-        {
-          id: new Date().getUTCMilliseconds(),
-          number: Math.floor(
-            Math.random() * Math.floor(20)
-          ),
-        },
-      ],
-    }));
-  };
-
-  removeNumber = id => {
-    this.setState(state => ({
-      numbers: state.numbers.filter(
-        item => item.id !== id
-      ),
+      favorites,
     }));
   };
 
   render() {
     return (
-      <div className="app">
-        <button onClick={this.addCell}>
-          Add Row
-        </button>
-        <TransitionGroup>
-          {this.state.numbers.map(
-            ({ id, number }) => (
-              <CSSTransition
-                timeout={500}
-                classNames="fade"
-                key={id}
-              >
-                <div className="card">
-                  {number}
-                  <button
-                    onClick={() =>
-                      this.removeNumber(id)
-                    }
-                  >
-                    Remove
-                  </button>
-                </div>
-              </CSSTransition>
-            )
-          )}
+      <div className="container">
+        <ul className="ingredients">
+          {this.items.map(({ id, name }) => (
+            <li
+              className="ingredient"
+              onClick={() =>
+                this.toggleInFavorites(id)
+              }
+            >
+              {name}
+              <span className="star">
+                {this.state.favorites.find(
+                  favorite => favorite.id === id
+                )
+                  ? '★'
+                  : '☆'}
+              </span>
+            </li>
+          ))}
+        </ul>
+        <TransitionGroup className="favorites">
+          <p>My Favorites:</p>
+          {this.state.favorites.map(({ id, name }) => (
+            <CSSTransition
+              timeout={500}
+              classNames="fade"
+              key={id}
+            >
+              <div className="favorite">{name}</div>
+            </CSSTransition>
+          ))}
         </TransitionGroup>
       </div>
     );
