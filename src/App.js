@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 // import TransitionAReactComponentWithTransition from './transition-a-react-component-with-rtgs-transition';
-// import TransitionAReactComponentWithCSSTransition from './transition-a-react-component-with-rtgs-csstransition';
+import TransitionAReactComponentWithCSSTransition from './transition-a-react-component-with-rtgs-csstransition';
 // import TransitionListWithReactTransitionGroup from './transition-items-within-a-list-with-react-transition-group';
 // import Appear from './show-rtg-elements-with-an-initial-transition-with-the-appear-prop';
 // import EnterExit from './disable-rtg-enter-andor-exit-transitions-using-the-enter-and-exit-props';
@@ -13,13 +13,13 @@ import './App.css';
 // import AnimateHeightExample from './transition-the-height-of-a-component-entering-and-leaving-the-dom-with-the-react-animate-height-library';
 // import UseWithJSS from './use-react-transition-group-alongside-jss';
 // import StyledComponentsExample from './use-react-transition-group-alongside-the-styled-components-library';
-import TroubleshootTransitionInsideTransitionGroup from './troubleshoot-a-transition-inside-a-rtg-transitiongroup-component';
+// import TroubleshootTransitionInsideTransitionGroup from './troubleshoot-a-transition-inside-a-rtg-transitiongroup-component';
 
 class App extends Component {
   render() {
     return (
       // <TransitionAReactComponentWithTransition />
-      // <TransitionAReactComponentWithCSSTransition />
+      <TransitionAReactComponentWithCSSTransition />
       // <TransitionListWithReactTransitionGroup />
       // <Appear />
       // <EnterExit />
@@ -31,7 +31,7 @@ class App extends Component {
       // <AnimateHeightExample />
       // <UseWithJSS />
       // <StyledComponentsExample />
-      <TroubleshootTransitionInsideTransitionGroup />
+      // <TroubleshootTransitionInsideTransitionGroup />
     );
   }
 }

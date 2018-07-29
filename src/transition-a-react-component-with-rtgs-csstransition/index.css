@@ -1,22 +1,82 @@
-.fade-enter {
-  opacity: 0;
-  transform: translateY(-50%);
+:root {
+  --toggler-bg-color: #ffbf00;
+  --toggler-active-bg-color: 	#ffcf40;
+  --toggler-width: 120px;
+  --toggler-height: 40px;
+  --card-bg-color: 		#ffdc73;
+  --card-starting-top: 0px;
+  --card-ending-top: 45px;
+  --card-width: 200px;
+  --card-max-height: 200px;
 }
 
-.fade-enter-active {
-  opacity: 1;
-  transform: translateY(0%);
-  transition: all 250ms;
+.container {
+  position: relative;
 }
 
-.fade-exit {
-  transform-origin: top left;
-  transform: scale(1);
-  opacity: 1;
+.toggler {
+  position: relative;
+  z-index: 1;
+  width: var(--toggler-width);
+  height: var(--toggler-height);
+  background-color: var(--toggler-bg-color);
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+  transition: background-color 350ms;
 }
 
-.fade-exit-active {
-  transform: scale(0);
-  opacity: 0;
-  transition: all 500ms;
+.toggler--active {
+  background-color: var(--toggler-active-bg-color);
+}
+
+.card {
+  position: absolute;
+  top: var(--card-ending-top);
+  box-sizing: border-box;
+  width: var(--card-width);
+  padding: 0 20px;
+  overflow: hidden;
+  background-color: var(--card-bg-color);
+  border-radius: 5px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.balloon-enter {
+  top: var(--card-starting-top);
+  width: var(--toggler-width);
+  max-height: var(--toggler-height);
+  color: transparent;
+  background-color: var(--toggler-bg-color);
+}
+
+.balloon-enter-active {
+  top: var(--card-ending-top);
+  width: var(--card-width);
+  max-height: var(--card-max-height);
+  color: black;
+  background-color: var(--card-bg-color);
+  transition: all 350ms;
+}
+
+.balloon-exit {
+  top: var(--card-ending-top);
+  width: var(--card-width);
+  max-height: var(--card-max-height);
+  color: black;
+  background-color: var(--card-bg-color);
+}
+
+.balloon-exit-active {
+  top: var(--card-starting-top);
+  width: var(--toggler-width);
+  max-height: var(--toggler-height);
+  color: transparent;
+  background-color: var(--toggler-bg-color);
+  transition: all 350ms;
 }
