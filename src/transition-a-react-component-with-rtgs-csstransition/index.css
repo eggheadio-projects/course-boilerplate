@@ -1,13 +1,15 @@
 :root {
-  --toggler-bg-color: #ffbf00;
-  --toggler-active-bg-color: 	#ffcf40;
   --toggler-width: 120px;
   --toggler-height: 40px;
-  --card-bg-color: 		#ffdc73;
-  --card-starting-top: 0px;
-  --card-ending-top: 45px;
-  --card-width: 200px;
-  --card-max-height: 200px;
+  --toggler-bg-color: #ffbf00;
+  --toggler-active-bg-color: 	#ffcf40;
+  --menu-starting-top: 0px;
+  --menu-ending-top: 45px;
+  --menu-width: 200px;
+  --menu-max-height: 200px;
+  --menu-bg-color: #ffdc73;
+  --fade-from-color: transparent;
+  --fade-to-color: black;
 }
 
 .container {
@@ -31,52 +33,56 @@
   background-color: var(--toggler-active-bg-color);
 }
 
-.card {
+.menu {
   position: absolute;
-  top: var(--card-ending-top);
+  top: var(--menu-ending-top);
   box-sizing: border-box;
-  width: var(--card-width);
+  width: var(--menu-width);
   padding: 0 20px;
   overflow: hidden;
-  background-color: var(--card-bg-color);
+  background-color: var(--menu-bg-color);
   border-radius: 5px;
 }
 
-ul {
-  list-style-type: none;
+.list {
   padding: 0;
+  list-style-type: none;
+}
+
+.list-item {
+  padding: 5px 0;
 }
 
 .balloon-enter {
-  top: var(--card-starting-top);
+  top: var(--menu-starting-top);
   width: var(--toggler-width);
   max-height: var(--toggler-height);
-  color: transparent;
+  color: var(--fade-from-color);
   background-color: var(--toggler-bg-color);
 }
 
 .balloon-enter-active {
-  top: var(--card-ending-top);
-  width: var(--card-width);
-  max-height: var(--card-max-height);
-  color: black;
-  background-color: var(--card-bg-color);
+  top: var(--menu-ending-top);
+  width: var(--menu-width);
+  max-height: var(--menu-max-height);
+  color: var(--fade-to-color);
+  background-color: var(--menu-bg-color);
   transition: all 350ms;
 }
 
 .balloon-exit {
-  top: var(--card-ending-top);
-  width: var(--card-width);
-  max-height: var(--card-max-height);
-  color: black;
-  background-color: var(--card-bg-color);
+  top: var(--menu-ending-top);
+  width: var(--menu-width);
+  max-height: var(--menu-max-height);
+  color: var(--fade-to-color);
+  background-color: var(--menu-bg-color);
 }
 
 .balloon-exit-active {
-  top: var(--card-starting-top);
+  top: var(--menu-starting-top);
   width: var(--toggler-width);
   max-height: var(--toggler-height);
-  color: transparent;
+  color: var(--fade-from-color);
   background-color: var(--toggler-bg-color);
   transition: all 350ms;
 }

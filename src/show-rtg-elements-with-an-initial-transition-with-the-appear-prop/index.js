@@ -1,33 +1,47 @@
 import React, { Component } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import cx from 'classnames';
 import './index.css';
 
 class App extends Component {
   state = {
-    showing: true,
+    showBalloon: false,
+    highlightedListItem: false,
   };
 
   toggle = () => {
     this.setState(state => ({
-      showing: !state.showing,
+      showBalloon: !state.showBalloon,
     }));
   };
 
   render() {
     return (
-      <div>
-        <CSSTransition
-          in={this.state.showing}
-          timeout={500}
-          classNames="fade"
-          appear
-          unmountOnExit
+      <div className="container">
+        <button
+          className={cx('toggler', {
+            'toggler--active': this.state.showBalloon,
+          })}
+          onClick={this.toggle}
         >
-          <div className="cookie-box">
-            <p>Accept cookies?</p>
-            <button onClick={this.toggle}>
-              OK
-            </button>
+          Menu
+        </button>
+        <CSSTransition
+          in={this.state.showBalloon}
+          timeout={350}
+          classNames="balloon"
+          unmountOnExit
+          onEntered={this.toggleBg}
+          onExit={this.toggleBg}
+          appear
+        >
+          <div className="menu">
+            <ul className="list">
+              <li className="list-item">Home</li>
+              <li className="list-item">Profile</li>
+              <li className="list-item">Favorites</li>
+              <li className="list-item">Sign out</li>
+            </ul>
           </div>
         </CSSTransition>
       </div>
