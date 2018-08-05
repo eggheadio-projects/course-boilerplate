@@ -46,9 +46,7 @@ class App extends Component {
             </div>
           )}
         </Transition>
-        <button onClick={this.toggle}>
-          Toggle
-        </button>
+        <button onClick={this.toggle}>Toggle</button>
       </div>
     );
   }

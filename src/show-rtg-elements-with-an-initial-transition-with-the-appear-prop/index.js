@@ -5,8 +5,7 @@ import './index.css';
 
 class App extends Component {
   state = {
-    showBalloon: false,
-    highlightedListItem: false,
+    showBalloon: true,
   };
 
   toggle = () => {

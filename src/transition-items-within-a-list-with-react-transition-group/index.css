@@ -1,23 +1,27 @@
+:root {
+  --timeout: 500ms;
+}
+
 .fade-enter {
-  opacity: 0;
   max-height: 0;
+  opacity: 0;
 }
 
 .fade-enter-active {
+  max-height: 30px;
   opacity: 1;
-  max-height: 20px;
-  transition: all 500ms;
+  transition: all var(--timeout);
 }
 
 .fade-exit {
-  max-height: 20px;
+  max-height: 30px;
   opacity: 1;
 }
 
 .fade-exit-active {
   max-height: 0px;
   opacity: 0;
-  transition: all 500ms;
+  transition: all var(--timeout);
 }
 
 .container {
@@ -42,15 +46,12 @@
 }
 
 .favorites {
+  box-sizing: border-box;
   width: 50%;
+  padding: 10px;
   background-color: papayawhip;
 }
 
-.favorite {
-  padding: 10px;
-}
-
-.list-item,
-.favorite {
+.list-item {
  padding: 10px;
 }
