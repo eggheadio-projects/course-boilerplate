@@ -10,6 +10,7 @@
   --menu-bg-color: #ffdc73;
   --fade-from-color: transparent;
   --fade-to-color: black;
+  --timeout: 350ms;
 }
 
 .container {
@@ -68,7 +69,7 @@
   max-height: var(--menu-max-height);
   color: var(--fade-to-color);
   background-color: var(--menu-bg-color);
-  transition: all 350ms;
+  transition: all var(--timeout);
 }
 
 .balloon-exit {
@@ -85,7 +86,7 @@
   max-height: var(--toggler-height);
   color: var(--fade-from-color);
   background-color: var(--toggler-bg-color);
-  transition: all 350ms;
+  transition: all var(--timeout);
 }
 
 .swipe-container {
