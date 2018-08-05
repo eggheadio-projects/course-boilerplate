@@ -3,7 +3,6 @@ import {
   CSSTransition,
   TransitionGroup,
 } from 'react-transition-group';
-import cx from 'classnames';
 import uuidv1 from 'uuid/v1';
 import './index.css';
 
