@@ -1,57 +1,57 @@
 :root {
-    --timeout: 500ms;
-  }
-  
-  .fade-enter {
-    max-height: 0;
-    opacity: 0;
-  }
-  
-  .fade-enter-active {
-    max-height: 30px;
-    opacity: 1;
-    transition: all var(--timeout);
-  }
-  
-  .fade-exit {
-    max-height: 30px;
-    opacity: 1;
-  }
-  
-  .fade-exit-active {
-    max-height: 0px;
-    opacity: 0;
-    transition: all var(--timeout);
-  }
-  
-  .container {
-    display: flex;
-  }
-  
-  .ingredients {
-    width: 50%;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-  }
-  
-  .ingredient {
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .star {
-    margin-left: 5px;
-    color: gold;
-  }
-  
-  .favorites {
-    box-sizing: border-box;
-    width: 50%;
-    padding: 10px;
-    background-color: papayawhip;
-  }
-  
-  .list-item {
-   padding: 10px;
-  }
+  --timeout: 500ms;
+}
+
+.fade-enter {
+  max-height: 0;
+  opacity: 0;
+}
+
+.fade-enter-active {
+  max-height: 30px;
+  opacity: 1;
+  transition: all var(--timeout);
+}
+
+.fade-exit {
+  max-height: 30px;
+  opacity: 1;
+}
+
+.fade-exit-active {
+  max-height: 0px;
+  opacity: 0;
+  transition: all var(--timeout);
+}
+
+.container {
+  display: flex;
+}
+
+.ingredients {
+  width: 50%;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.ingredient {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.star {
+  margin-left: 5px;
+  color: gold;
+}
+
+.favorites {
+  box-sizing: border-box;
+  width: 50%;
+  padding: 10px;
+  background-color: papayawhip;
+}
+
+.list-item {
+ padding: 10px;
+}
