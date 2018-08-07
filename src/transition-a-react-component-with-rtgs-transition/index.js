@@ -7,8 +7,8 @@ class App extends Component {
   };
 
   toggle = () => {
-    this.setState(state => ({
-      showing: !state.showing,
+    this.setState(prevState => ({
+      showing: !prevState.showing,
     }));
   };
 

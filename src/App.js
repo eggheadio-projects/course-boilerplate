@@ -9,7 +9,6 @@ import './App.css';
 // import ReactRouterTransition from './transition-between-pages-with-react-transition-group-and-react-router';
 // import TransitionAReactComponentWithTransition from './transition-a-react-component-with-rtgs-transition';
 import StyledComponentsExample from './use-react-transition-group-alongside-the-styled-components-library';
-// import MigrateFromV1 from './migrate-to-using-react-transition-group-v2-from-v1';
 
 class App extends Component {
   render() {
@@ -23,7 +22,6 @@ class App extends Component {
       // <ReactRouterTransition />
       // <TransitionAReactComponentWithTransition />
       <StyledComponentsExample />
-      // <MigrateFromV1 />
     );
   }
 }

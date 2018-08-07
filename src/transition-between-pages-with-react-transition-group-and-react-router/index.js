@@ -100,8 +100,8 @@ class Main extends Component {
   };
 
   toggle = () => {
-    this.setState(state => ({
-      showBalloon: !state.showBalloon,
+    this.setState(prevState => ({
+      showBalloon: !prevState.showBalloon,
     }));
   };
 

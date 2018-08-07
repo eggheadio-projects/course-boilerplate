@@ -40,11 +40,10 @@ class App extends Component {
 
   toggleInFavorites = id => {
     let favorites;
-    if (
-      this.state.favorites.find(
-        favorite => favorite.id === id
-      )
-    ) {
+    const isItemInFavorites = this.state.favorites.find(
+      favorite => favorite.id === id
+    );
+    if (isItemInFavorites) {
       // Item is already in favorites, remove it.
       favorites = this.state.favorites.filter(
         favorite => favorite.id !== id
@@ -56,9 +55,7 @@ class App extends Component {
         this.items.find(item => id === item.id),
       ];
     }
-    this.setState(state => ({
-      favorites,
-    }));
+    this.setState({ favorites });
   };
 
   render() {
