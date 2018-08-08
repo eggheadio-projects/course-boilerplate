@@ -82,7 +82,7 @@ class App extends Component {
         </ul>
         <TransitionGroup
           className="favorites"
-          component={null}
+          component="section"
         >
           <p>My Favorites:</p>
           {this.state.favorites.map(({ id, name }) => (
