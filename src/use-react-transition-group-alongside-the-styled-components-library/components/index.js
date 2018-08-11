@@ -18,7 +18,7 @@ export const Container = styled.div`
 
 export const Toggler = styled.button`
   position: relative;
-  z-index: 1;
+  z-index: 2;
   width: var(--toggler-width);
   height: var(--toggler-height);
   background-color: ${props =>
@@ -44,6 +44,7 @@ export const ListItem = styled.li`
 export const Menu = transition.div`
   position: absolute;
   top: var(--menu-ending-top);
+  z-index: 1;
   box-sizing: border-box;
   width: var(--menu-width);
   padding: 0 20px;

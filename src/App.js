@@ -7,8 +7,8 @@ import './App.css';
 // import TransitionListWithReactTransitionGroup from './transition-items-within-a-list-with-react-transition-group';
 // import ComponentProp from './choose-which-kind-of-element-renders-as-the-lesstransitiongreater-lesscsstransitiongreater-and-lesstransitiongroupgreater-container-element-with-the-component-prop';
 // import ReactRouterTransition from './transition-between-pages-with-react-transition-group-and-react-router';
-// import TransitionAReactComponentWithTransition from './transition-a-react-component-with-rtgs-transition';
-import StyledComponentsExample from './use-react-transition-group-alongside-the-styled-components-library';
+import TransitionAReactComponentWithTransition from './transition-a-react-component-with-rtgs-transition';
+// import StyledComponentsExample from './use-react-transition-group-alongside-the-styled-components-library';
 
 class App extends Component {
   render() {
@@ -20,8 +20,8 @@ class App extends Component {
       // <TransitionListWithReactTransitionGroup />
       // <ComponentProp />
       // <ReactRouterTransition />
-      // <TransitionAReactComponentWithTransition />
-      <StyledComponentsExample />
+      <TransitionAReactComponentWithTransition />
+      // <StyledComponentsExample />
     );
   }
 }

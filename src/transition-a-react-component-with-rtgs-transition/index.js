@@ -1,55 +1,70 @@
 import React, { Component } from 'react';
 import { Transition } from 'react-transition-group';
+import cx from 'classnames';
+import styles from './styles';
+import injectSheet from 'react-jss';
+console.log('styles: ', styles);
 
 class App extends Component {
   state = {
-    showing: false,
+    showBalloon: false,
   };
 
   toggle = () => {
     this.setState(prevState => ({
-      showing: !prevState.showing,
+      showBalloon: !prevState.showBalloon,
     }));
   };
 
   render() {
-    const timeout = 250;
-
-    const defaultStyles = {
-      opacity: 0,
-      transition: `opacity ${timeout}ms`,
-    };
-
-    const transitionStyles = {
-      entering: {
-        opacity: 1,
-      },
-      entered: {
-        opacity: 1,
-      },
-    };
-
+    const { classes } = this.props;
     return (
-      <div>
-        <Transition
-          timeout={timeout}
-          in={this.state.showing}
+      <div className={classes.container}>
+        <button
+          className={cx(classes.toggler, {
+            [classes.togglerActive]: this.state
+              .showBalloon,
+          })}
+          onClick={this.toggle}
         >
-          {state => (
+          Menu
+        </button>
+        <Transition
+          in={this.state.showBalloon}
+          timeout={350}
+          unmountOnExit
+        >
+          {status => (
             <div
-              style={{
-                ...defaultStyles,
-                ...transitionStyles[state],
-              }}
+              className={cx(
+                classes.balloon,
+                classes[`balloon-${status}`],
+                classes.menu
+              )}
             >
-              {state}
+              {console.log('status: ', status)}
+              <ul className={classes.list}>
+                <li className={classes.listItem}>
+                  Home
+                </li>
+                <li className={classes.listItem}>
+                  Profile
+                </li>
+                <li className={classes.listItem}>
+                  Favorites
+                </li>
+                <li className={classes.listItem}>
+                  Sign out
+                </li>
+              </ul>
             </div>
           )}
         </Transition>
-        <button onClick={this.toggle}>Toggle</button>
       </div>
     );
   }
 }
 
-export default App;
+const StyledApp = injectSheet(styles)(App);
+
+export default StyledApp;
