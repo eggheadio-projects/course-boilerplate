@@ -1,27 +1,6 @@
 :root {
   --timeout: 500ms;
-}
-
-.fade-enter {
-  max-height: 0;
-  opacity: 0;
-}
-
-.fade-enter-active {
-  max-height: 30px;
-  opacity: 1;
-  transition: all var(--timeout);
-}
-
-.fade-exit {
-  max-height: 30px;
-  opacity: 1;
-}
-
-.fade-exit-active {
-  max-height: 0px;
-  opacity: 0;
-  transition: all var(--timeout);
+  --list-item-max-height: 30px;
 }
 
 .container {
@@ -54,4 +33,26 @@
 
 .list-item {
  padding: 10px;
+}
+
+.fade-enter {
+  max-height: 0;
+  opacity: 0;
+}
+
+.fade-enter-active {
+  max-height: var(--list-item-max-height);
+  opacity: 1;
+  transition: all var(--timeout);
+}
+
+.fade-exit {
+  max-height: var(--list-item-max-height);
+  opacity: 1;
+}
+
+.fade-exit-active {
+  max-height: 0px;
+  opacity: 0;
+  transition: all var(--timeout);
 }

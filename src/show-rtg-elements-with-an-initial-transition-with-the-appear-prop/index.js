@@ -30,8 +30,6 @@ class App extends Component {
           timeout={350}
           classNames="balloon"
           unmountOnExit
-          onEntered={this.toggleBg}
-          onExit={this.toggleBg}
           appear
         >
           <div className="menu">

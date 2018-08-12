@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { CSSTransition } from 'react-transition-group';
 import cx from 'classnames';
+import { CSSTransition } from 'react-transition-group';
 import './index.css';
 
 class App extends Component {

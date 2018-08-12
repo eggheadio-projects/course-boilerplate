@@ -107,7 +107,6 @@
 .swipe-exit {
   transform: translateY(0%);
   opacity: 1;
-  
 }
 
 .swipe-exit-active {

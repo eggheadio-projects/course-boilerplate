@@ -106,10 +106,12 @@ class Main extends Component {
   };
 
   componentWillReceiveProps(nextProps) {
+    // Hide menu on route change.
     if (nextProps.location !== this.props.location) {
       this.setState({ showBalloon: false });
     }
   }
+
   render() {
     const { location } = this.props;
     return (

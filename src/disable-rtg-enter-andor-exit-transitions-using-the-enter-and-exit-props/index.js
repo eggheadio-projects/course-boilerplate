@@ -30,8 +30,6 @@ class App extends Component {
           timeout={350}
           classNames="balloon"
           unmountOnExit
-          enter={false}
-          exit={false}
         >
           <div className="menu">
             <ul className="list">
