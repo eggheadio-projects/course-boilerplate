@@ -66,15 +66,17 @@ const styles = {
   listItem: {
     padding: '5px 0',
   },
-  balloon: {},
-  'balloon-entering': {
+  balloonEnter: {
     ...startTransitionStyles,
   },
-  'balloon-entered': {
+  balloonEnterActive: {
     ...finishTransitionStyles,
     transition: `all ${vars.timeout}`,
   },
-  'balloon-exiting': {
+  balloonExit: {
+    ...finishTransitionStyles,
+  },
+  balloonExitActive: {
     ...startTransitionStyles,
     transition: `all ${vars.timeout}`,
   },

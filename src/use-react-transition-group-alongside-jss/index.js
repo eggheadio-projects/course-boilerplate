@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Transition } from 'react-transition-group';
+import { CSSTransition } from 'react-transition-group';
 import cx from 'classnames';
 import styles from './styles';
 import injectSheet from 'react-jss';
@@ -29,19 +29,19 @@ class App extends Component {
         >
           Menu
         </button>
-        <Transition
+        <CSSTransition
           in={this.state.showBalloon}
           timeout={350}
           unmountOnExit
+          classNames={{
+            enter: classes.balloonEnter,
+            enterActive: classes.balloonEnterActive,
+            exit: classes.balloonExit,
+            exitActive: classes.balloonExitActive,
+          }}
         >
           {status => (
-            <div
-              className={cx(
-                classes.balloon,
-                classes[`balloon-${status}`],
-                classes.menu
-              )}
-            >
+            <div className={classes.menu}>
               {console.log('status: ', status)}
               <ul className={classes.list}>
                 <li className={classes.listItem}>
@@ -59,7 +59,7 @@ class App extends Component {
               </ul>
             </div>
           )}
-        </Transition>
+        </CSSTransition>
       </div>
     );
   }
