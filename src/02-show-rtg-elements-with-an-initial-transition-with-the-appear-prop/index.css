@@ -55,18 +55,8 @@
   padding: 5px 0;
 }
 
+.balloon-enter,
 .balloon-appear {
-  opacity: 0;
-  transform: translate(-20%, -20%);
-}
-
-.balloon-appear-active {
-  opacity: 1;
-  transform: translate(0, 0);
-  transition: all 400ms;
-}
-
-.balloon-enter {
   top: var(--menu-starting-top);
   width: var(--toggler-width);
   max-height: var(--toggler-height);
@@ -74,7 +64,8 @@
   background-color: var(--toggler-bg-color);
 }
 
-.balloon-enter-active {
+.balloon-enter-active,
+.balloon-appear-active {
   top: var(--menu-ending-top);
   width: var(--menu-width);
   max-height: var(--menu-max-height);
