@@ -3,34 +3,34 @@ import {
   CSSTransition,
   TransitionGroup,
 } from 'react-transition-group';
-import uuidv1 from 'uuid/v1';
+import uuid from 'uuid';
 import './index.css';
 
 class App extends Component {
   items = [
     {
       name: 'Potato',
-      id: uuidv1(),
+      id: uuid(),
     },
     {
       name: 'Carrot',
-      id: uuidv1(),
+      id: uuid(),
     },
     {
       name: 'Pepper',
-      id: uuidv1(),
+      id: uuid(),
     },
     {
       name: 'Eggplant',
-      id: uuidv1(),
+      id: uuid(),
     },
     {
       name: 'Onion',
-      id: uuidv1(),
+      id: uuid(),
     },
     {
       name: 'Garlic',
-      id: uuidv1(),
+      id: uuid(),
     },
   ];
 
@@ -64,6 +64,7 @@ class App extends Component {
         <ul className="ingredients">
           {this.items.map(({ id, name }) => (
             <li
+              key={id}
               className="ingredient"
               onClick={() =>
                 this.toggleInFavorites(id)
@@ -80,18 +81,24 @@ class App extends Component {
             </li>
           ))}
         </ul>
-        <TransitionGroup className="favorites">
+        <div className="favorites">
           <p>My Favorites:</p>
-          {this.state.favorites.map(({ id, name }) => (
-            <CSSTransition
-              timeout={500}
-              classNames="fade"
-              key={id}
-            >
-              <div className="favorite">{name}</div>
-            </CSSTransition>
-          ))}
-        </TransitionGroup>
+          <TransitionGroup>
+            {this.state.favorites.map(
+              ({ id, name }) => (
+                <CSSTransition
+                  timeout={500}
+                  classNames="fade"
+                  key={id}
+                >
+                  <div className="favorite">
+                    {name}
+                  </div>
+                </CSSTransition>
+              )
+            )}
+          </TransitionGroup>
+        </div>
       </div>
     );
   }
