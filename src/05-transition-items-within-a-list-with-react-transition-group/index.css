@@ -3,6 +3,11 @@
   --list-item-max-height: 30px;
 }
 
+ul {
+  margin: 0;
+  padding: 0 10px;
+}
+
 .container {
   display: flex;
 }
@@ -52,7 +57,7 @@
 }
 
 .fade-exit-active {
-  max-height: 0px;
+  max-height: 0;
   opacity: 0;
   transition: all var(--timeout);
 }
