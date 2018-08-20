@@ -3,7 +3,6 @@ import { CSSTransition } from 'react-transition-group';
 import cx from 'classnames';
 import styles from './styles';
 import injectSheet from 'react-jss';
-console.log('styles: ', styles);
 
 class App extends Component {
   state = {
