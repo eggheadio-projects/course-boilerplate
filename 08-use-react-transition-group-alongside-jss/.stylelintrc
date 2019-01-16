@@ -1,0 +1,13 @@
+{
+  "extends": [
+    "stylelint-config-recommended",
+    "stylelint-config-rational-order"
+  ],
+  "rules": {
+    "block-no-empty": true,
+    "block-opening-brace-space-before": "always",
+    "block-opening-brace-newline-after": "always",
+    "block-closing-brace-newline-after": "always",
+    "rule-empty-line-before": "always"
+  }
+}
